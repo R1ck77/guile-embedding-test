@@ -5,14 +5,9 @@
 
 
 int main(int argc, char *argv[]) {
-  
+
   scm_init_guile();
+  scm_c_eval_string("(display \"Hello, from Scheme!\n\")");
 
-  SCM converted = scm_from_utf8_string("Hello, from Scheme. Sort of.");
-  scm_gc();
-  char *result = scm_to_utf8_string(converted);
-
-  fprintf(stderr, "The result is: '%s'\n", result);
-  
   return 0;
 }
